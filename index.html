@@ -14,9 +14,80 @@
 
   <body>
     <header>   
-        <h1>Titre test bootstrap</h1> 
+        <h1>
+            <img src="/assets/petits-plats-logo.png" alt="Les petits plats" >
+        </h1> 
     </header>
+
     <main>
+
+        <div id="search-section">
+            <form class="search-form">
+                <div class="search-bar-container">
+                    <label for="search-bar"></label>
+                    <input type="text" name="search-bar" id="search-bar" placeholder="Rechercher une recette">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="filter-tag-display">
+                    <p class="placeholder-tag">
+                        Coco x
+                    </p>
+                </div>
+                <div class="filter-select-inputs">
+                    <button id="ingredients-filter">Ingredients</button>
+                    <button id="appareils-filter">Appareils</button>
+                    <button id="ustensiles-filter">Ustensiles</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="results">
+            <div class="recipe-card">
+                <div class="recipe-card-image">
+                    <img src="/assets/recipe-image.jpg" alt="cooking book">
+                </div>
+                <div class="recipe-card-content">
+                    <div class="recipe-card-content-top">
+                        <h3>Titre de la recette</h3>
+                        <div class="duration-area">
+                            <i class="fa-regular fa-clock"></i>
+                            <p class="duration-text">80 min</p>
+                        </div>
+                    </div>
+                    <div class="recipe-card-content-bottom">
+                        <ul class="ingredients-list">
+                            <li class="ingredient">
+                                <b>Lait de coco:</b> 400ml
+                            </li>
+                            <li class="ingredient">
+                                <b>Jus de citron:</b> 2
+                            </li>
+                            <li class="ingredient">
+                                <b>Crème de coco</b> 4 cuillères
+                            </li>
+                            <li class="ingredient">
+                                <b>Sucre</b> 20g
+                            </li>
+                            <li class="ingredient">
+                                <b>Glaçons</b> 2
+                            </li>
+                        </ul>
+                        <p class="description">
+                            Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert 
+                            (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. 
+                            (Si possible faites-le le soir pour le lendemain. 
+                            Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates 
+                            en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons 
+                            avec le citron cette fois ci dans un Saladier. 
+                            Ajouter le lait de coco. 
+                            Pour ajouter un peu plus de saveur vous pouvez ajouter 
+                            1 à 2 cuillères à soupe de Crème de coco
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
