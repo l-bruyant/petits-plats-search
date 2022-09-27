@@ -12,8 +12,8 @@
     <script src="https://kit.fontawesome.com/3229684b02.js"></script>
   </head>
 
-  <body>
-    <header>   
+  <body class="container">
+    <header class="row text-center">   
         <h1>
             <img src="/assets/petits-plats-logo.png" alt="Les petits plats" >
         </h1> 
@@ -21,41 +21,54 @@
 
     <main>
 
-        <div id="search-section">
+        <div id="search-section" class="row">
             <form class="search-form">
-                <div class="search-bar-container">
+                <div class="search-bar-container form-group">
                     <label for="search-bar"></label>
-                    <input type="text" name="search-bar" id="search-bar" placeholder="Rechercher une recette">
+                    <input class="form-control" type="text" name="search-bar" id="search-bar" placeholder="Rechercher une recette">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div class="filter-tag-display">
                     <p class="placeholder-tag">
-                        Coco x
+                        Coco
+                        <button class="remove-filter-button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </p>
                 </div>
-                <div class="filter-select-inputs">
-                    <button id="ingredients-filter">Ingredients</button>
-                    <button id="appareils-filter">Appareils</button>
-                    <button id="ustensiles-filter">Ustensiles</button>
+                <div class="filter-select-inputs form-group">
+                    <button class="form-control filter-button" id="ingredients-filter">
+                        <p id="ingredients-filter-text">Ingredients</p>
+                        <i id="ingredients-filter-icon" class="fa-solid fa-chevron-up"></i>
+                    </button>
+                    <button class="form-control filter-button" id="appareils-filter">
+                        <p id="appareils-filter-text">Appareils</p>
+                        <i id="appareils-filter-icon" class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <button class="form-control filter-button" id="ustensiles-filter">
+                        <p id="ustensiles-filter-text">Ustensiles</p>
+                        <i id="ustensiles-filter-icon" class="fa-solid fa-chevron-down"></i>
+                    </button>
                 </div>
             </form>
         </div>
 
-        <div id="results">
-            <div class="recipe-card">
+        <div id="results" class="row results-container">
+
+            <div class="recipe-card card col-4">
                 <div class="recipe-card-image">
-                    <img src="/assets/recipe-image.jpg" alt="cooking book">
+                    <img class="recipe-illustration" src="/assets/recipe-image.jpg" alt="cooking book">
                 </div>
-                <div class="recipe-card-content">
+                <div class="recipe-card-content card-body">
                     <div class="recipe-card-content-top">
-                        <h3>Titre de la recette</h3>
+                        <h3 class="card-title">Titre de la recette</h3>
                         <div class="duration-area">
                             <i class="fa-regular fa-clock"></i>
-                            <p class="duration-text">80 min</p>
+                            <p class="duration-text card-text">80 min</p>
                         </div>
                     </div>
                     <div class="recipe-card-content-bottom">
-                        <ul class="ingredients-list">
+                        <ul class="ingredients-list card-text list-unstyled">
                             <li class="ingredient">
                                 <b>Lait de coco:</b> 400ml
                             </li>
@@ -63,16 +76,16 @@
                                 <b>Jus de citron:</b> 2
                             </li>
                             <li class="ingredient">
-                                <b>Crème de coco</b> 4 cuillères
+                                <b>Crème de coco:</b> 4 cuillères
                             </li>
                             <li class="ingredient">
-                                <b>Sucre</b> 20g
+                                <b>Sucre:</b> 20g
                             </li>
                             <li class="ingredient">
-                                <b>Glaçons</b> 2
+                                <b>Glaçons:</b> 2
                             </li>
                         </ul>
-                        <p class="description">
+                        <p class="description card-text">
                             Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert 
                             (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. 
                             (Si possible faites-le le soir pour le lendemain. 
@@ -86,6 +99,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </main>

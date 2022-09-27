@@ -1,0 +1,173 @@
+@font-face {
+    font-family: "Lato";
+    src: url("/assets/Lato/Lato-Regular.ttf");
+}
+
+body {
+    font-family: lato, arial, sans-serif;
+    max-width: 1200px;
+}
+
+header img {
+    height: 100px;
+    width: 270px;
+    margin: 40px 0px 10px 0px;
+}
+
+.search-bar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search-bar-container i {
+    position: absolute;
+    right: 15px;
+}
+
+#search-bar {
+    background-color: #E7E7E7;
+    color: #000000;
+    font-size: 18px;
+}
+
+#search-bar::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.placeholder-tag {
+    background-color: #3282F7;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    width: 107px;
+    height: 37px;
+
+}
+.remove-filter-button {
+    color: white;
+    font-weight: 600;
+    border: solid 2px white;
+    background-color: #3282F7;
+    border-radius: 1000px;
+    height: 18px;
+    width: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.filter-select-inputs {
+    display: flex;
+}
+
+.filter-button {
+    width: 170px;
+    height: 70px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    padding:16px;
+}
+
+.filter-button p {
+    margin: 0;
+}
+
+#ingredients-filter {
+    background-color: #3282F7;
+}
+
+#appareils-filter {
+    background-color: #68D9A4;
+}
+
+#ustensiles-filter {   
+    background-color: #ED6454;   
+}
+
+.results-container {
+    margin-bottom: 200px;
+}
+
+.card {
+    padding: 0;
+    margin: 20px 10px;
+    height: 364px;
+    width: 380px;
+}
+
+.recipe-illustration {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: #E7E7E7;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.recipe-card-content-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.duration-area {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.recipe-card-content-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+    white-space: initial;
+    text-overflow: ellipsis;
+}
+
+.ingredients-list {
+    width: 50%;
+    font-size: 12px;
+    margin: 16px 20px 16px 0px;
+    line-height: 100%;
+}
+
+.description {
+    width: 50%;
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 400;
+    margin: 16px 0px 16px 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+}
+
