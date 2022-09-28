@@ -65,12 +65,13 @@ header img {
 
 .filter-select-inputs {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .filter-button {
     width: 170px;
     height: 70px;
-    margin-right: 20px;
+    margin: 10px 20px 10px 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -80,6 +81,7 @@ header img {
     font-size: 18px;
     font-weight: 700;
     padding:16px;
+    border: none;
 }
 
 .filter-button p {
@@ -100,13 +102,23 @@ header img {
 
 .results-container {
     margin-bottom: 200px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .card {
     padding: 0;
+    margin: auto;
     margin: 20px 10px;
     height: 364px;
     width: 380px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 7px 14px;
 }
 
 .recipe-illustration {
@@ -167,7 +179,7 @@ header img {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 9;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
 }
 

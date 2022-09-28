@@ -7,14 +7,19 @@ class App {
   }
 
   async main () {
-    const recipes = await this.recipesApi.getRecipes()
-    console.log(recipes)
+    const recipesData = await this.recipesApi.getRecipes()
 
-    recipes.forEach(recipe => {
+    recipesData
       // eslint-disable-next-line no-undef
-      const Template = new RecipeCard(recipe)
-      this.recipesWrapper.appendChild(Template.createRecipeCard())
-    })
+      .map(recipe => new Recipe(recipe))
+      .forEach(recipe => {
+        console.log('====')
+        console.log(recipe)
+        console.log('====')
+        // eslint-disable-next-line no-undef
+        const Template = new RecipeCard(recipe)
+        this.recipesWrapper.appendChild(Template.createRecipeCard())
+      })
   }
 }
 

@@ -18,7 +18,7 @@ class RecipeCard {
                 <h3 class="card-title">${this._recipe.name}</h3>
                 <div class="duration-area">
                     <i class="fa-regular fa-clock"></i>
-                    <p class="duration-text card-text">${this._recipe.time}</p>
+                    <p class="duration-text card-text">${this._recipe.time} min</p>
                 </div>
             </div>
             <div class="recipe-card-content-bottom">
