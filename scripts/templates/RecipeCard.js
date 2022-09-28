@@ -9,6 +9,20 @@ class RecipeCard {
     wrapper.classList.add('card')
     wrapper.classList.add('col-4')
 
+    const recipeIngredientsList = document.createElement('ul')
+    recipeIngredientsList.classList.add('ingredients-list')
+    recipeIngredientsList.classList.add('card-text')
+    recipeIngredientsList.classList.add('list-unstyled')
+
+    const recipeIngredients = this._recipe.ingredients
+    recipeIngredients.forEach(ingredient => {
+      const ingredientElement = document.createElement('li')
+      ingredientElement.innerHTML = ingredient.ingredient
+      recipeIngredientsList.appendChild(ingredientElement)
+    })
+
+    console.log(recipeIngredientsList)
+
     const recipeCard = `
         <div class="recipe-card-image">
             <img class="recipe-illustration" src="/assets/recipe-image.jpg" alt="cooking book">
@@ -22,23 +36,7 @@ class RecipeCard {
                 </div>
             </div>
             <div class="recipe-card-content-bottom">
-                <ul class="ingredients-list card-text list-unstyled">
-                    <li class="ingredient">
-                        <b>Lait de coco:</b> 400ml
-                    </li>
-                    <li class="ingredient">
-                        <b>Jus de citron:</b> 2
-                    </li>
-                    <li class="ingredient">
-                        <b>Crème de coco:</b> 4 cuillères
-                    </li>
-                    <li class="ingredient">
-                        <b>Sucre:</b> 20g
-                    </li>
-                    <li class="ingredient">
-                        <b>Glaçons:</b> 2
-                    </li>
-                </ul>
+                ${recipeIngredientsList.outerHTML}
                 <p class="description card-text">
                     ${this._recipe.description}
                 </p>

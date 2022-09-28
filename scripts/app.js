@@ -8,14 +8,10 @@ class App {
 
   async main () {
     const recipesData = await this.recipesApi.getRecipes()
-
     recipesData
       // eslint-disable-next-line no-undef
       .map(recipe => new Recipe(recipe))
       .forEach(recipe => {
-        console.log('====')
-        console.log(recipe)
-        console.log('====')
         // eslint-disable-next-line no-undef
         const Template = new RecipeCard(recipe)
         this.recipesWrapper.appendChild(Template.createRecipeCard())
