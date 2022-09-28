@@ -2,7 +2,7 @@ class App {
   constructor () {
     this.recipesWrapper = document.getElementById('results')
     // eslint-disable-next-line no-undef
-    this.recipesApi = new RecipeApi('../data/recipes-data.json')
+    this.recipesApi = new RecipeApi('data/recipes-data.json')
   }
 
   async main () {
