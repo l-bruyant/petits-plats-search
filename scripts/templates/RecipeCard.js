@@ -27,8 +27,6 @@ class RecipeCard {
       recipeIngredientsList.appendChild(ingredientElement)
     })
 
-    console.log(recipeIngredientsList)
-
     const recipeCard = `
         <div class="recipe-card-image">
             <img class="recipe-illustration" src="/assets/recipe-image.jpg" alt="cooking book">
