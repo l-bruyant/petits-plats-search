@@ -29,7 +29,7 @@ class RecipeCard {
 
     const recipeCard = `
         <div class="recipe-card-image">
-            <img class="recipe-illustration" src="/assets/recipe-image.jpg" alt="cooking book">
+            <img class="recipe-illustration" src="assets/recipe-image.jpg" alt="cooking book">
         </div>
         <div class="recipe-card-content card-body">
             <div class="recipe-card-content-top">
