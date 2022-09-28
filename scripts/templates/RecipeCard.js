@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 class RecipeCard {
-  constructor(recipe) {
+  constructor (recipe) {
     this._recipe = recipe
   }
 
@@ -8,6 +9,7 @@ class RecipeCard {
     wrapper.classList.add('recipe-card')
     wrapper.classList.add('card')
     wrapper.classList.add('col-4')
+    wrapper.setAttribute('tabindex', 0)
 
     const recipeIngredientsList = document.createElement('ul')
     recipeIngredientsList.classList.add('ingredients-list')
@@ -17,7 +19,11 @@ class RecipeCard {
     const recipeIngredients = this._recipe.ingredients
     recipeIngredients.forEach(ingredient => {
       const ingredientElement = document.createElement('li')
-      ingredientElement.innerHTML = ingredient.ingredient
+      const ingredientName = ingredient.ingredient
+      const ingredientQuantity = ingredient.quantity ? ': ' + ingredient.quantity : ' '
+      const ingredientUnit = ingredient.unit ? ingredient.unit : ' '
+      const ingredientString = '<b>' + ingredientName + '</b>' + ingredientQuantity + ' ' + ingredientUnit
+      ingredientElement.innerHTML = ingredientString
       recipeIngredientsList.appendChild(ingredientElement)
     })
 

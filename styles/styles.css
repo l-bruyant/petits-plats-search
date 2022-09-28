@@ -110,7 +110,7 @@ header img {
     padding: 0;
     margin: auto;
     margin: 20px 10px;
-    height: 364px;
+    height: auto;
     width: 380px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -143,6 +143,7 @@ header img {
     font-size: 18px;
     font-weight: 400;
     margin: 0;
+    max-width: 70%;
 }
 
 .duration-area {
@@ -179,7 +180,7 @@ header img {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
 }
 
