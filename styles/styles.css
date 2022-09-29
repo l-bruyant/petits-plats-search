@@ -140,7 +140,7 @@ header img {
 #ustensiles-items-list {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(20, auto);    
+    grid-template-rows: repeat(10, auto);    
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
@@ -153,7 +153,7 @@ header img {
 #appareils-items-list {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(20, auto);    
+    grid-template-rows: repeat(10, auto);    
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
