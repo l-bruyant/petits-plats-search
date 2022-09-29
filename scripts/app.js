@@ -8,29 +8,37 @@ class App {
   async main () {
     const recipesData = await this.recipesApi.getRecipes()
     const searchValue = document.getElementById('search-bar').value
-    if (searchValue.length < 3) {
-      recipesData
-        // eslint-disable-next-line no-undef
-        .map(recipe => new Recipe(recipe))
-        .forEach(recipe => {
+    document.getElementById('ingredients-items-list').innerHTML = ''
+    let ingredientsListFilter = []
+    emptyRecipesDOM()
+    recipesData
+    // eslint-disable-next-line no-undef
+      .map(recipe => new Recipe(recipe))
+      .forEach(recipe => {
+        const ingredientsNamesString = recipe.ingredients.map(function (a) { return a.ingredient }).toString()
+        const ingredientsNames = recipe.ingredients.map(function (a) { return a.ingredient })
+        const searchValueCondition = recipe.name.toLowerCase().includes(searchValue.toLowerCase()) || recipe.description.toLowerCase().includes(searchValue.toLowerCase()) || ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())
+        const searchLengthCondition = searchValue.length > 2
+        if (searchValueCondition && searchLengthCondition) {
+          unemptyRecipesDom()
           // eslint-disable-next-line no-undef
           const Template = new RecipeCard(recipe)
           this.recipesWrapper.appendChild(Template.createRecipeCard())
-        })
-    } else {
-      resetRecipesDOM()
-      recipesData
-      // eslint-disable-next-line no-undef
-        .map(recipe => new Recipe(recipe))
-        .forEach(recipe => {
-          const ingredientsNamesList = recipe.ingredients.map(function (a) { return a.ingredient }).toString()
-          if (recipe.name.toLowerCase().includes(searchValue.toLowerCase()) || recipe.description.toLowerCase().includes(searchValue.toLowerCase()) || ingredientsNamesList.toLowerCase().includes(searchValue.toLowerCase())) {
-          // eslint-disable-next-line no-undef
-            const Template = new RecipeCard(recipe)
-            this.recipesWrapper.appendChild(Template.createRecipeCard())
-          }
-        })
-    }
+          ingredientsListFilter = ingredientsListFilter.concat(ingredientsNames)
+        } else if (searchValueCondition) {
+          ingredientsListFilter = ingredientsListFilter.concat(ingredientsNames)
+        }
+      })
+    const uniqueIngredients = [...new Set(ingredientsListFilter)]
+    // else {
+    //   document.getElementById('ingredients-expanded').style.gridTemplateRows = 'repeat(6, auto)'
+    // }
+    uniqueIngredients.forEach(uniqueIngredient => {
+      const ingredientHTML = document.createElement('div')
+      ingredientHTML.classList.add('filter-item')
+      ingredientHTML.innerText = uniqueIngredient
+      document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
+    })
   }
 
   async setTracking () {
@@ -45,6 +53,22 @@ const app = new App()
 app.main()
 app.setTracking()
 
-function resetRecipesDOM () {
+function emptyRecipesDOM () {
+  document.getElementById('results').innerHTML = '<div>Veuillez préciser votre recherche</div>'
+}
+
+function unemptyRecipesDom () {
   document.getElementById('results').innerHTML = ''
 }
+
+// function resetIngredientsFilterDOM () {
+//   document.getElementById('ingredients-items-list').innerHTML = ''
+// }
+
+// function resetAppareilsFilterDOM () {
+//   document.getElementById('appareils-items-list').innerHTML = ''
+// }
+
+// function resetUstensilesFilterDOM () {
+//   document.getElementById('ustensiles-items-list').innerHTML = ''
+// }

@@ -117,32 +117,62 @@ header img {
     flex-direction: column;
     height: auto;
     min-width: 320px;
-    max-height: 526px;
+    max-height: 900px;
     border-radius: 5px;
     color: white;
     margin: 10px 20px 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.filter-items-list {
+#ingredients-items-list {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(11, auto);    
+    grid-template-rows: repeat(20, auto);    
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
     width: max-content;
-    max-height: 490px;
+    max-height: 800px;
+    padding-bottom: 20px;
+    padding-right: 16px;
+}
+
+#ustensiles-items-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(20, auto);    
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: max-content;
+    max-height: 800px;
+    padding-bottom: 20px;
+    padding-right: 16px;
+}
+
+#appareils-items-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(20, auto);    
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: max-content;
+    max-height: 800px;
     padding-bottom: 20px;
     padding-right: 16px;
 }
 
 .filter-items-list div {
-    display: flex;
+    display: block;
     position: relative;
-    width: 230px;
+    width: 160px;
+    height: 24px;
     font-size: 18px;
-    margin: 5px 0px 5px 20px;
+    margin: 5px 0px 5px 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #ingredients-expanded {
@@ -163,6 +193,7 @@ header img {
 .filter-input-area {
     position: relative;
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     height: 70px;
     min-height: 70px;
