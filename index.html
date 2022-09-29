@@ -39,8 +39,23 @@
                 <div class="filter-select-inputs form-group">
                     <button class="form-control filter-button" id="ingredients-filter">
                         <p id="ingredients-filter-text">Ingredients</p>
-                        <i id="ingredients-filter-icon" class="fa-solid fa-chevron-up"></i>
+                        <i id="ingredients-filter-icon-down" class="fa-solid fa-chevron-down"></i>
                     </button>
+                    <div class="filter-expanded" id="ingredients-expanded">
+                        <div class="filter-input-area" id="ingredients-filter-input">
+                            <label for="text-input-ingredients"></label>
+                            <input class="filter-input" type="text" name="text-input-ingredients" id="text-input-ingredients" placeholder="Rechercher un ingrédient">
+                            <i id="ingredients-filter-icon-up" class="fa-solid fa-chevron-up"></i>
+                        </div>
+                        <div class="filter-items-list" id="ingredients-items-list">
+                            <div class="filter-item">Ingredient</div>
+                            <div>Ingredient</div>
+                            <div>Ingredient</div>
+                            <div>Ingredient</div>
+                            <div>Ingredient</div>
+                        </div>
+
+                    </div>
                     <button class="form-control filter-button" id="appareils-filter">
                         <p id="appareils-filter-text">Appareils</p>
                         <i id="appareils-filter-icon" class="fa-solid fa-chevron-down"></i>
