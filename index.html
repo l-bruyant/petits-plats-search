@@ -54,16 +54,43 @@
                             <div>Ingredient</div>
                             <div>Ingredient</div>
                         </div>
-
                     </div>
                     <button class="form-control filter-button" id="appareils-filter">
                         <p id="appareils-filter-text">Appareils</p>
                         <i id="appareils-filter-icon" class="fa-solid fa-chevron-down"></i>
                     </button>
+                    <div class="filter-expanded" id="appareils-expanded">
+                        <div class="filter-input-area" id="appareils-filter-input">
+                            <label for="text-input-appareils"></label>
+                            <input class="filter-input" type="text" name="text-input-appareils" id="text-input-appareils" placeholder="Rechercher un appareil">
+                            <i id="ingredients-filter-icon-up" class="fa-solid fa-chevron-up"></i>
+                        </div>
+                        <div class="filter-items-list" id="appareils-items-list">
+                            <div class="filter-item">Appareil</div>
+                            <div>Appareil</div>
+                            <div>Appareil</div>
+                            <div>Appareil</div>
+                            <div>Appareil</div>
+                        </div>
+                    </div>
                     <button class="form-control filter-button" id="ustensiles-filter">
                         <p id="ustensiles-filter-text">Ustensiles</p>
                         <i id="ustensiles-filter-icon" class="fa-solid fa-chevron-down"></i>
                     </button>
+                    <div class="filter-expanded" id="ustensiles-expanded">
+                        <div class="filter-input-area" id="ustensiles-filter-input">
+                            <label for="text-input-ustensiles"></label>
+                            <input class="filter-input" type="text" name="text-input-ustensiles" id="text-input-ustensiles" placeholder="Rechercher un ustensile">
+                            <i id="ustensiles-filter-icon-up" class="fa-solid fa-chevron-up"></i>
+                        </div>
+                        <div class="filter-items-list" id="ustensiles-items-list">
+                            <div class="filter-item">Ustensile</div>
+                            <div>Ustensile</div>
+                            <div>Ustensile</div>
+                            <div>Ustensile</div>
+                            <div>Ustensile</div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -79,6 +106,7 @@
     <script src="scripts/templates/RecipeCard.js"></script>
     <script src="scripts/api/api.js"></script>
     <script src="scripts/utils/searchForm.js"></script>
+    <script src="scripts/utils/filtersMenus.js"></script>
     <script src="scripts/app.js"></script>
 
   </body>

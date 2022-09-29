@@ -16,7 +16,7 @@ header img {
 
 #search-section {
     overflow: visible;
-    max-height: 250px;
+    max-height: 196px;
 }
 
 .search-bar-container {
@@ -98,6 +98,10 @@ header img {
     background-color: #3282F7;
 }
 
+#ingredients-filter-icon-up {
+    cursor: pointer;
+}
+
 #appareils-filter {
     background-color: #68D9A4;
 }
@@ -143,14 +147,17 @@ header img {
 
 #ingredients-expanded {
     background-color: #3282F7;
+    display: none;
 }
 
 #appareils-expanded {
     background-color: #68D9A4;
+    display: none;
 }
 
 #ustensiles-expanded {   
-    background-color: #ED6454;   
+    background-color: #ED6454; 
+    display: none; 
 }
 
 .filter-input-area {
