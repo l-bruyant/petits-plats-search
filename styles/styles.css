@@ -73,6 +73,10 @@ header img {
     flex-wrap: wrap;
 }
 
+.filter-select-inputs i {
+    cursor: pointer;
+}
+
 .filter-button {
     width: 170px;
     height: 70px;
@@ -96,10 +100,6 @@ header img {
 
 #ingredients-filter {
     background-color: #3282F7;
-}
-
-#ingredients-filter-icon-up {
-    cursor: pointer;
 }
 
 #appareils-filter {
