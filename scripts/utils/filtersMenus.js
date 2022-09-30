@@ -54,3 +54,12 @@ function hideUstensilesMenu () {
 }
 
 document.getElementById('ustensiles-filter-icon-up').addEventListener('click', hideUstensilesMenu)
+
+// tag management
+
+// eslint-disable-next-line no-unused-vars
+function deleteParentNode (elt) {
+  elt.parentNode.parentNode.removeChild(elt.parentNode)
+  app.main()
+  app.setTracking()
+}

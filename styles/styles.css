@@ -41,23 +41,49 @@ header img {
     color: rgba(0, 0, 0, 0.25);
 }
 
-.placeholder-tag {
-    background-color: #3282F7;
+.tag {
     display: flex;
     flex-direction: row;
     align-items: center;
     color: white;
     border-radius: 5px;
     justify-content: space-evenly;
-    width: 107px;
+    width: max-content;
     height: 37px;
-
+    margin: 0px 8px 0px 0px;
 }
+
+.tag div {
+    margin: 0px 8px 0px 8px
+}
+
+.tag button {
+    margin: 0px 8px 0px 8px
+}
+
+.ingredient-tag {
+    background-color: #3282F7;
+}
+
+.appareil-tag {
+    background-color: #68D9A4;
+}
+
+.ustensile-tag {
+    background-color: #ED6454;
+}
+
+#filter-tag-display {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
 .remove-filter-button {
     color: white;
     font-weight: 600;
     border: solid 2px white;
-    background-color: #3282F7;
+    background-color: transparent;
     border-radius: 1000px;
     height: 18px;
     width: 18px;
@@ -232,6 +258,12 @@ header img {
     position: relative;
     z-index: 1;
 }
+
+/* .blocker-text {
+    width: 100%;
+    height: 50vh;
+    z-index: 1;
+} */
 
 .card {
     padding: 0;
