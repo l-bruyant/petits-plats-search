@@ -9,7 +9,7 @@ class App {
     const originalRecipesData = await this.recipesApi.getRecipes()
     const searchBar = document.getElementById('search-bar')
     searchBar.addEventListener('input', function () {
-      generateCards(originalRecipesData)
+      generateCardsSequence(originalRecipesData)
     })
   }
 }
@@ -22,52 +22,42 @@ function emptyRecipesDOM () {
   document.getElementById('results').innerHTML = ''
 }
 
-function filterNameByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.name.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
+// function createIngredientsTags (x) {
+  
+// }
 
-function filterDescriptionByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.description.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
-
-function filterIngredientsByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    const ingredientsNamesString = x.ingredients.map(function (a) { return a.ingredient }).toString()
-    console.log(ingredientsNamesString)
-    return ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
-
-function generateCards (x) {
+function generateCardsSequence (data) {
   emptyRecipesDOM()
-  let recipesData = x
+  let recipesData = data
   const recipesFilteredByName = filterNameByInputValue(recipesData)
   const recipesFilteredByDescr = filterDescriptionByInputValue(recipesData)
   const recipesFilteredByIngr = filterIngredientsByInputValue(recipesData)
   const allFilteredRecipes = recipesFilteredByDescr.concat(recipesFilteredByName).concat(recipesFilteredByIngr)
+  if (allFilteredRecipes.length === 0) {
+    errorRecipesDOM()
+  }
   recipesData = [...new Set(allFilteredRecipes)]
+  displayIngredientsFilters(recipesData)
+  displayApplianceFilters(recipesData)
+  displayUstensilsFilters(recipesData)
   recipesData
     .forEach(recipe => {
-    // eslint-disable-next-line no-undef
       const Template = new RecipeCard(recipe)
       app.recipesWrapper.appendChild(Template.createRecipeCard())
     })
 }
 
+//   //     const ingredientsTagCondition = document.querySelectorAll('.ingredient-tag').length === 0 || existingTags.some(element => {
+//   //       return ingredientsNames.includes(element)
+//   //     })
+//   let existingTags = []
+//   const tagCollect = document.querySelectorAll('.tag')
+//   tagCollect.forEach(tag => {
+//     const cleanTag = tag.innerText
+//     existingTags.push(cleanTag)
+//   })
+
 // async secondary () {
-//   // const recipesData = await this.recipesApi.getRecipes()
-//   const searchValue = document.getElementById('search-bar').value
-//   document.getElementById('ingredients-items-list').innerHTML = ''
 //   let ingredientsListFilter = []
 //   let applianceListFilter = []
 //   let ustensilsListFilter = []
@@ -218,18 +208,6 @@ function generateCards (x) {
 // // function unemptyRecipesDom () {
 // //   document.getElementById('results').innerHTML = ''
 // // }
-
-// function resetIngredientsFilterDOM () {
-//   document.getElementById('ingredients-items-list').innerHTML = ''
-// }
-
-// function resetAppareilsFilterDOM () {
-//   document.getElementById('appareils-items-list').innerHTML = ''
-// }
-
-// function resetUstensilesFilterDOM () {
-//   document.getElementById('ustensiles-items-list').innerHTML = ''
-// }
 
 // // eslint-disable-next-line no-unused-vars
 // function deleteTag (elt) {
