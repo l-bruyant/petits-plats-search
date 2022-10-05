@@ -1,3 +1,10 @@
+// GLOBAL 
+
+function deleteTag (elt) {
+  elt.parentNode.parentNode.removeChild(elt.parentNode)
+}
+const filterTagArea = document.getElementById('filter-tag-display')
+
 // INGREDIENTS MENU
 
 function displayIngredientsMenu () {
@@ -66,15 +73,50 @@ function displayIngredientsFilters (x) {
   })
   const uniqueIngredients = [...new Set(ingredientsListFilter)]
   uniqueIngredients.forEach(uniqueIngredient => {
-    const ingredientHTML = document.createElement('div')
-    ingredientHTML.innerText = uniqueIngredient
-    ingredientHTML.classList.add('filter-item')
-    document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
+    createIngredientListItem(uniqueIngredient)
   })
 }
 
 function resetIngredientsFilterDOM () {
   document.getElementById('ingredients-items-list').innerHTML = ''
+}
+
+function createIngredientListItem (x) {
+  const ingredientHTML = document.createElement('div')
+  ingredientHTML.innerText = x
+  ingredientHTML.classList.add('filter-item')
+  document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
+  ingredientHTML.addEventListener('click', function () {
+    createIngredientTag(x)
+  })
+}
+
+function createIngredientTag (x) {
+  // Mettre en global dans la superfunction de creation
+  const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  // Fin partie globale
+  const ingredientTagAlreadyExists = DOMTagsArray.some(element => {
+    return x.includes(element)
+  })
+  if (!ingredientTagAlreadyExists) {
+    const tag = document.createElement('div')
+    tag.classList.add('tag')
+    tag.classList.add('ingredient-tag')
+    tag.innerHTML = `
+        <div>
+        ${x}
+        </div>
+        <button class="remove-filter-button" onClick="deleteTag(this)">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+      `
+    filterTagArea.appendChild(tag)
+  }
 }
 
 // APPLIANCE FILTERS DISPLAY
@@ -88,15 +130,50 @@ function displayApplianceFilters (x) {
   })
   const uniqueAppliances = [...new Set(ApplianceListFilter)]
   uniqueAppliances.forEach(uniqueAppliance => {
-    const applianceHTML = document.createElement('div')
-    applianceHTML.innerText = uniqueAppliance
-    applianceHTML.classList.add('filter-item')
-    document.getElementById('appareils-items-list').appendChild(applianceHTML)
+    createApplianceListItem(uniqueAppliance)
   })
 }
 
 function resetApplianceFilterDOM () {
   document.getElementById('appareils-items-list').innerHTML = ''
+}
+
+function createApplianceListItem (x) {
+  const applianceHTML = document.createElement('div')
+  applianceHTML.innerText = x
+  applianceHTML.classList.add('filter-item')
+  document.getElementById('appareils-items-list').appendChild(applianceHTML)
+  applianceHTML.addEventListener('click', function () {
+    createApplianceTag(x)
+  })
+}
+
+function createApplianceTag (x) {
+  // Mettre en global dans la superfunction de creation
+  const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  // Fin partie globale
+  const ApplianceTagAlreadyExists = DOMTagsArray.some(element => {
+    return x.includes(element)
+  })
+  if (!ApplianceTagAlreadyExists) {
+    const tag = document.createElement('div')
+    tag.classList.add('tag')
+    tag.classList.add('appareil-tag')
+    tag.innerHTML = `
+        <div>
+        ${x}
+        </div>
+        <button class="remove-filter-button" onClick="deleteTag(this)">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+      `
+    filterTagArea.appendChild(tag)
+  }
 }
 
 // USTENSILS FILTER
@@ -106,18 +183,52 @@ function displayUstensilsFilters (x) {
   let ustensilsListFilter = []
   x.forEach(recipe => {
     const recipeUstensils = recipe.ustensils
-    console.log(recipeUstensils)
     ustensilsListFilter = ustensilsListFilter.concat(recipeUstensils)
   })
   const uniqueUstensils = [...new Set(ustensilsListFilter)]
   uniqueUstensils.forEach(uniqueUstensil => {
-    const ustensilHTML = document.createElement('div')
-    ustensilHTML.innerText = uniqueUstensil
-    ustensilHTML.classList.add('filter-item')
-    document.getElementById('ustensiles-items-list').appendChild(ustensilHTML)
+    createUstensilListItem(uniqueUstensil)
   })
 }
 
 function resetUstensilsFilterDOM () {
   document.getElementById('ustensiles-items-list').innerHTML = ''
+}
+
+function createUstensilListItem (x) {
+  const ustensilHTML = document.createElement('div')
+  ustensilHTML.innerText = x
+  ustensilHTML.classList.add('filter-item')
+  document.getElementById('ustensiles-items-list').appendChild(ustensilHTML)
+  ustensilHTML.addEventListener('click', function () {
+    createUstensilTag(x)
+  })
+}
+
+function createUstensilTag (x) {
+  // Mettre en global dans la superfunction de creation
+  const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  // Fin partie globale
+  const UstensilTagAlreadyExists = DOMTagsArray.some(element => {
+    return x.includes(element)
+  })
+  if (!UstensilTagAlreadyExists) {
+    const tag = document.createElement('div')
+    tag.classList.add('tag')
+    tag.classList.add('ustensile-tag')
+    tag.innerHTML = `
+        <div>
+        ${x}
+        </div>
+        <button class="remove-filter-button" onClick="deleteTag(this)">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+      `
+    filterTagArea.appendChild(tag)
+  }
 }
