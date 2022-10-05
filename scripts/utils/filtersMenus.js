@@ -1,7 +1,8 @@
-// GLOBAL 
+// GLOBAL
 
 function deleteTag (elt) {
   elt.parentNode.parentNode.removeChild(elt.parentNode)
+  app.main()
 }
 const filterTagArea = document.getElementById('filter-tag-display')
 
@@ -88,6 +89,7 @@ function createIngredientListItem (x) {
   document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
   ingredientHTML.addEventListener('click', function () {
     createIngredientTag(x)
+    app.main()
   })
 }
 
@@ -145,6 +147,7 @@ function createApplianceListItem (x) {
   document.getElementById('appareils-items-list').appendChild(applianceHTML)
   applianceHTML.addEventListener('click', function () {
     createApplianceTag(x)
+    app.main()
   })
 }
 
@@ -202,6 +205,7 @@ function createUstensilListItem (x) {
   document.getElementById('ustensiles-items-list').appendChild(ustensilHTML)
   ustensilHTML.addEventListener('click', function () {
     createUstensilTag(x)
+    app.main()
   })
 }
 

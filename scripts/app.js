@@ -1,13 +1,13 @@
+const searchBar = document.getElementById('search-bar')
 class App {
   constructor () {
     this.recipesWrapper = document.getElementById('results')
-    // eslint-disable-next-line no-undef
     this.recipesApi = new RecipeApi('data/recipes-data.json')
   }
 
   async main () {
     const originalRecipesData = await this.recipesApi.getRecipes()
-    const searchBar = document.getElementById('search-bar')
+    generateCardsSequence(originalRecipesData)
     searchBar.addEventListener('input', function () {
       generateCardsSequence(originalRecipesData)
     })
@@ -16,15 +16,10 @@ class App {
 
 const app = new App()
 app.main()
-// app.setTracking()
 
 function emptyRecipesDOM () {
   document.getElementById('results').innerHTML = ''
 }
-
-// function createIngredientsTags (x) {
-  
-// }
 
 function generateCardsSequence (data) {
   emptyRecipesDOM()
@@ -37,6 +32,9 @@ function generateCardsSequence (data) {
     errorRecipesDOM()
   }
   recipesData = [...new Set(allFilteredRecipes)]
+  recipesData = filterAppliancesByTags(recipesData)
+  recipesData = filterUstensilsByTags(recipesData)
+  recipesData = filterIngredientsByTags(recipesData)
   displayIngredientsFilters(recipesData)
   displayApplianceFilters(recipesData)
   displayUstensilsFilters(recipesData)
@@ -46,16 +44,6 @@ function generateCardsSequence (data) {
       app.recipesWrapper.appendChild(Template.createRecipeCard())
     })
 }
-
-//   //     const ingredientsTagCondition = document.querySelectorAll('.ingredient-tag').length === 0 || existingTags.some(element => {
-//   //       return ingredientsNames.includes(element)
-//   //     })
-//   let existingTags = []
-//   const tagCollect = document.querySelectorAll('.tag')
-//   tagCollect.forEach(tag => {
-//     const cleanTag = tag.innerText
-//     existingTags.push(cleanTag)
-//   })
 
 // async secondary () {
 //   let ingredientsListFilter = []
