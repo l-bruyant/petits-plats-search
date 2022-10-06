@@ -3,7 +3,7 @@ document.getElementById('main-form').addEventListener('submit', function (e) {
 })
 
 function errorRecipesDOM () {
-  document.getElementById('results').innerHTML = '<div> Veuillez préciser votre recherche </div>'
+  document.getElementById('results').innerHTML = '<div> Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc </div>'
 }
 
 // Filter search results by input

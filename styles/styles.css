@@ -163,6 +163,13 @@ header img {
     padding-right: 16px;
 }
 
+@media screen and (max-width: 1400px) {
+    #ingredients-items-list,
+    .filter-expanded {
+        overflow:scroll;
+    }
+  }
+
 #ustensiles-items-list {
     display: grid;
     grid-auto-flow: column;

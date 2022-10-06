@@ -9,7 +9,7 @@ class App {
     const originalRecipesData = await this.recipesApi.getRecipes()
     generateCardsSequence(originalRecipesData)
     searchBar.addEventListener('input', function () {
-      generateCardsSequence(originalRecipesData)
+        generateCardsSequence(originalRecipesData)
     })
   }
 }
@@ -23,6 +23,9 @@ function emptyRecipesDOM () {
 
 function generateCardsSequence (data) {
   emptyRecipesDOM()
+  hideIngredientsMenu()
+  hideAppareilsMenu()
+  hideUstensilesMenu()
   let recipesData = data
   const recipesFilteredByName = filterNameByInputValue(recipesData)
   const recipesFilteredByDescr = filterDescriptionByInputValue(recipesData)
@@ -38,11 +41,19 @@ function generateCardsSequence (data) {
   displayIngredientsFilters(recipesData)
   displayApplianceFilters(recipesData)
   displayUstensilsFilters(recipesData)
-  recipesData
-    .forEach(recipe => {
-      const Template = new RecipeCard(recipe)
-      app.recipesWrapper.appendChild(Template.createRecipeCard())
-    })
+    const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  if (searchBar.value.length > 2 || DOMTagsArray.length > 0) {
+    recipesData
+      .forEach(recipe => {
+        const Template = new RecipeCard(recipe)
+        app.recipesWrapper.appendChild(Template.createRecipeCard())
+      })
+  }
 }
 
 // async secondary () {
