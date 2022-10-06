@@ -41,7 +41,7 @@ function generateCardsSequence (data) {
   displayIngredientsFilters(recipesData)
   displayApplianceFilters(recipesData)
   displayUstensilsFilters(recipesData)
-    const DOMTagsArray = []
+  const DOMTagsArray = []
   const DOMtags = document.querySelectorAll('.tag')
   DOMtags.forEach(tag => {
     const tagText = tag.innerText
