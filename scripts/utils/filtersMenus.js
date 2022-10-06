@@ -89,6 +89,9 @@ function createIngredientListItem (x) {
   document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
   ingredientHTML.addEventListener('click', function () {
     createIngredientTag(x)
+    console.log(ingredientsTagSearch.value)
+    ingredientsTagSearch.value = ''
+    console.log(ingredientsTagSearch.value)
     app.main()
   })
 }
@@ -147,6 +150,7 @@ function createApplianceListItem (x) {
   document.getElementById('appareils-items-list').appendChild(applianceHTML)
   applianceHTML.addEventListener('click', function () {
     createApplianceTag(x)
+    applianceTagSearch.value = ''
     app.main()
   })
 }
@@ -205,6 +209,7 @@ function createUstensilListItem (x) {
   document.getElementById('ustensiles-items-list').appendChild(ustensilHTML)
   ustensilHTML.addEventListener('click', function () {
     createUstensilTag(x)
+    ustensilsTagSearch.value = ''
     app.main()
   })
 }
