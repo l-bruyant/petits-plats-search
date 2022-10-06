@@ -7,14 +7,14 @@ class App {
   }
 
   async createPage () {
-    const originalRecipesData = await this.recipesApi.getRecipes()
-    generatePage(originalRecipesData)
+    const jsonRecipesData = await this.recipesApi.getRecipes()
+    generatePage(jsonRecipesData)
   }
 
   async setSearchTracking () {
-    const originalRecipesData = await this.recipesApi.getRecipes()
+    const jsonRecipesData = await this.recipesApi.getRecipes()
     searchBar.addEventListener('input', function () {
-      generatePage(originalRecipesData)
+      generatePage(jsonRecipesData)
     })
   }
 }

@@ -20,25 +20,38 @@ function searchRecipes (x) {
 
 function searchNameByInputValue (x) {
   const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.name.toLowerCase().includes(searchValue.toLowerCase())
-  })
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    if (x[i].name.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
   return x
 }
 
 function searchDescriptionByInputValue (x) {
   const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.description.toLowerCase().includes(searchValue.toLowerCase())
-  })
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    if (x[i].description.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
   return x
 }
 
 function searchIngredientsByInputValue (x) {
   const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    const ingredientsNamesString = x.ingredients.map(function (a) { return a.ingredient }).toString()
-    return ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())
-  })
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    const ingredientsNamesString = x[i].ingredients.map(function (a) { return a.ingredient }).toString()
+    if (ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
+  console.log(x)
   return x
 }

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-function displayAvailableFilters (x) {
+function updateFiltersList (x) {
   createIngredientsFilters(x)
   createApplianceFilters(x)
   createUstensilsFilters(x)
@@ -35,8 +35,6 @@ function createIngredientListItem (x) {
     app.createPage()
   })
 }
-
-// APPLIANCE FILTERS DISPLAY
 
 function createApplianceFilters (x) {
   resetApplianceFilterDOM()
