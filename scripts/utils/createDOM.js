@@ -4,9 +4,9 @@
 function generatePage (x) {
   resetInterface()
   let filteredRecipesData = x
-  filteredRecipesData = filterRecipesBySearch(filteredRecipesData)
-  filteredRecipesData = filterRecipesByFilterTags(filteredRecipesData)
-  createAvailableFilters(filteredRecipesData)
+  filteredRecipesData = searchRecipes(filteredRecipesData)
+  filteredRecipesData = filterRecipes(filteredRecipesData)
+  displayAvailableFilters(filteredRecipesData)
   activeTagsCheck()
   if (searchBar.value.length > 2 || activeTagsCheck() === true) {
     filteredRecipesData
@@ -26,4 +26,18 @@ function resetInterface () {
 
 function emptyRecipesDOM () {
   document.getElementById('results').innerHTML = ''
+}
+
+function activeTagsCheck () {
+  const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  if (DOMTagsArray.length > 0) {
+    return true
+  } else {
+    return false
+  }
 }

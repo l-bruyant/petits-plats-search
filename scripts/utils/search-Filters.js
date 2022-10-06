@@ -1,56 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-document.getElementById('main-form').addEventListener('submit', function (e) {
-  e.preventDefault()
-})
-
-const searchBar = document.getElementById('search-bar')
-
-function filterRecipesBySearch (x) {
-  const recipesFilteredByName = filterNameByInputValue(x)
-  const recipesFilteredByDescr = filterDescriptionByInputValue(x)
-  const recipesFilteredByIngr = filterIngredientsByInputValue(x)
-  const allFilteredRecipes = recipesFilteredByDescr.concat(recipesFilteredByName).concat(recipesFilteredByIngr)
-  if (allFilteredRecipes.length === 0) {
-    errorRecipesDOM()
-  }
-  x = [...new Set(allFilteredRecipes)]
+function filterRecipes (x) {
+  x = filterAppliancesByTags(x)
+  x = filterUstensilsByTags(x)
+  x = filterIngredientsByTags(x)
   return x
 }
-
-function errorRecipesDOM () {
-  document.getElementById('results').innerHTML = '<div> Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc </div>'
-}
-
-// Filter search results by input
-
-function filterNameByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.name.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
-
-function filterDescriptionByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    return x.description.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
-
-function filterIngredientsByInputValue (x) {
-  const searchValue = document.getElementById('search-bar').value
-  x = x.filter(function (x) {
-    const ingredientsNamesString = x.ingredients.map(function (a) { return a.ingredient }).toString()
-    return ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())
-  })
-  return x
-}
-
-// Filter search results by tags
 
 function filterIngredientsByTags (x) {
   const DOMIngredientsTagsArray = []
