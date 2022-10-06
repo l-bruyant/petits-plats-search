@@ -1,10 +1,40 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // GLOBAL
 
 function deleteTag (elt) {
   elt.parentNode.parentNode.removeChild(elt.parentNode)
-  app.main()
+  app.init()
 }
 const filterTagArea = document.getElementById('filter-tag-display')
+
+function filterRecipesByFilterTags (x) {
+  x = filterAppliancesByTags(x)
+  x = filterUstensilsByTags(x)
+  x = filterIngredientsByTags(x)
+  return x
+}
+
+function createAvailableFilters (x) {
+  createIngredientsFilters(x)
+  createApplianceFilters(x)
+  createUstensilsFilters(x)
+}
+
+function activeTagsCheck () {
+  const DOMTagsArray = []
+  const DOMtags = document.querySelectorAll('.tag')
+  DOMtags.forEach(tag => {
+    const tagText = tag.innerText
+    DOMTagsArray.push(tagText)
+  })
+  if (DOMTagsArray.length > 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // INGREDIENTS MENU
 
@@ -65,7 +95,7 @@ document.getElementById('ustensiles-filter-icon-up').addEventListener('click', h
 
 // INGREDIENTS FILTERS DISPLAY
 
-function displayIngredientsFilters (x) {
+function createIngredientsFilters (x) {
   resetIngredientsFilterDOM()
   let ingredientsListFilter = []
   x.forEach(recipe => {
@@ -89,10 +119,8 @@ function createIngredientListItem (x) {
   document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
   ingredientHTML.addEventListener('click', function () {
     createIngredientTag(x)
-    console.log(ingredientsTagSearch.value)
     ingredientsTagSearch.value = ''
-    console.log(ingredientsTagSearch.value)
-    app.main()
+    app.init()
   })
 }
 
@@ -126,7 +154,7 @@ function createIngredientTag (x) {
 
 // APPLIANCE FILTERS DISPLAY
 
-function displayApplianceFilters (x) {
+function createApplianceFilters (x) {
   resetApplianceFilterDOM()
   let ApplianceListFilter = []
   x.forEach(recipe => {
@@ -151,7 +179,7 @@ function createApplianceListItem (x) {
   applianceHTML.addEventListener('click', function () {
     createApplianceTag(x)
     applianceTagSearch.value = ''
-    app.main()
+    app.init()
   })
 }
 
@@ -185,7 +213,7 @@ function createApplianceTag (x) {
 
 // USTENSILS FILTER
 
-function displayUstensilsFilters (x) {
+function createUstensilsFilters (x) {
   resetUstensilsFilterDOM()
   let ustensilsListFilter = []
   x.forEach(recipe => {
@@ -210,7 +238,7 @@ function createUstensilListItem (x) {
   ustensilHTML.addEventListener('click', function () {
     createUstensilTag(x)
     ustensilsTagSearch.value = ''
-    app.main()
+    app.init()
   })
 }
 
