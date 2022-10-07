@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 const JSONDATA = 
 [
   {
@@ -1901,26 +1899,81 @@ const JSONDATA =
   }
 ]
 
-class App {
-  constructor () {
-    this.recipesWrapper = document.getElementById('results')
-    this.recipesApi = new RecipeApi('data/recipes-data.json')
-  }
+// CASE 1
 
-  async createPage () {
-    const jsonRecipesData = JSONDATA
-    console.log(jsonRecipesData)
-    generatePage(jsonRecipesData)
-  }
-
-  async setSearchTracking () {
-    const jsonRecipesData = JSONDATA
-    searchBar.addEventListener('input', function () {
-      generatePage(jsonRecipesData)
-    })
-  }
+function searchNameByInputValue (x) {
+  const searchValue = 'Chocolat'
+  x = x.filter(function (x) {
+    return x.name.toLowerCase().includes(searchValue.toLowerCase())
+  })
+  return x
 }
 
-const app = new App()
-app.createPage()
-app.setSearchTracking()
+function searchDescriptionByInputValue (x) {
+  const searchValue = 'Chocolat'
+  x = x.filter(function (x) {
+    return x.description.toLowerCase().includes(searchValue.toLowerCase())
+  })
+  return x
+}
+
+function searchIngredientsByInputValue (x) {
+  const searchValue = 'Chocolat'
+  x = x.filter(function (x) {
+    const ingredientsNamesString = x.ingredients.map(function (a) { return a.ingredient }).toString()
+    return ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())
+  })
+  return x
+}
+
+searchNameByInputValue(JSONDATA)
+searchDescriptionByInputValue(JSONDATA)
+searchIngredientsByInputValue(JSONDATA)
+
+// CASE 2
+
+function searchNameByInputValue (x) {
+  const searchValue = 'Chocolat'
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    if (x[i].name.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
+  return x
+}
+
+function searchDescriptionByInputValue (x) {
+  const searchValue = 'Chocolat'
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    if (x[i].description.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
+  return x
+}
+
+function searchIngredientsByInputValue (x) {
+  const searchValue = 'Chocolat'
+  const filteredData = []
+  for (let i = 0; i < x.length; i++) {
+    const ingredientsNamesString = x[i].ingredients.map(function (a) { return a.ingredient }).toString()
+    if (ingredientsNamesString.toLowerCase().includes(searchValue.toLowerCase())) {
+      filteredData.push(x[i])
+    }
+  }
+  x = filteredData
+  return x
+}
+
+searchNameByInputValue(JSONDATA)
+searchDescriptionByInputValue(JSONDATA)
+searchIngredientsByInputValue(JSONDATA)
+
+
+
+
+

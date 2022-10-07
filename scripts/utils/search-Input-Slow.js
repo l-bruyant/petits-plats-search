@@ -52,6 +52,5 @@ function searchIngredientsByInputValue (x) {
     }
   }
   x = filteredData
-  console.log(x)
   return x
 }
