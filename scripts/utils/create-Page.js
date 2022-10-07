@@ -5,7 +5,6 @@
 
 // Takes all recipes data from the API as input, then creates the page based on user choices
 function generatePage (x) {
-  console.log(x)
   resetPage()
   let appRecipesData = x
   appRecipesData = createRecipesList(appRecipesData)

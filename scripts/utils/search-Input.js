@@ -19,7 +19,6 @@ function searchRecipes (x) {
 // Filter search results by input
 
 function searchNameByInputValue (x) {
-  console.log(x)
   const searchValue = document.getElementById('search-bar').value
   x = x.filter(function (x) {
     return x.name.toLowerCase().includes(searchValue.toLowerCase())
