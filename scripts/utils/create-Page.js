@@ -1,22 +1,35 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-// MAIN FUNCTION FOR PAGE CREATION
+// MAIN FUNCTIONS FOR PAGE CREATION
 
-// Takes all recipes data from the API as input, then creates the page based on user choices
 function generatePage (x) {
-  resetPage()
-  let appRecipesData = x
-  appRecipesData = createRecipesList(appRecipesData)
+  const appRecipesData = x
   checkActiveFilters()
   if (searchBar.value.length > 2 || checkActiveFilters() === true) {
-    appRecipesData
-      .forEach(recipe => {
-        const Template = new RecipeCard(recipe)
-        app.recipesWrapper.appendChild(Template.createRecipeCard())
-      })
+    createPageWithFilter(appRecipesData)
+  } else if (searchBar.value.length < 3) {
+    createPageNoFilter(x)
   }
-  updateFiltersList(appRecipesData)
+}
+
+function createPageWithFilter (x) {
+  resetPage()
+  x = createRecipesList(x)
+  x.forEach(recipe => {
+    const Template = new RecipeCard(recipe)
+    app.recipesWrapper.appendChild(Template.createRecipeCard())
+  })
+  updateFiltersList(x)
+}
+
+function createPageNoFilter (x) {
+  resetPage()
+  x.forEach(recipe => {
+    const Template = new RecipeCard(recipe)
+    app.recipesWrapper.appendChild(Template.createRecipeCard())
+  })
+  updateFiltersList(x)
 }
 
 // SUPPORT FUNCTIONS FOR generatePage(x)
