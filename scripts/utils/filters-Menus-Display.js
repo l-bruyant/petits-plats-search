@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-// GLOBAL
+// THIS PAGE DEFINES HOW THE FILTERS MENUS ARE SHOWN AND HIDDEN
 
-// INGREDIENTS MENU
+// INGREDIENTS FILTER MENU
 
 function displayIngredientsMenu () {
   hideUstensilesMenu()
@@ -22,7 +22,7 @@ function hideIngredientsMenu () {
 
 document.getElementById('ingredients-filter-icon-up').addEventListener('click', hideIngredientsMenu)
 
-// APPAREILS MENU
+// APPAREILS FILTER MENU
 
 function displayAppareilsMenu () {
   hideUstensilesMenu()
@@ -41,7 +41,7 @@ function hideAppareilsMenu () {
 
 document.getElementById('appareils-filter-icon-up').addEventListener('click', hideAppareilsMenu)
 
-// USTENSILES MENU
+// USTENSILES FILTER MENU
 
 function displayUstensilesMenu () {
   hideIngredientsMenu()

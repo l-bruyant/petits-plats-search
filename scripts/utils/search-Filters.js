@@ -1,6 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+// THIS PAGE DEFINES HOW FILTER TAGS INFLUENCE WHAT RECIPES ARE DISPLAYED ON THE APP
+
+// MAIN FUNCTION
+// Take a list of recipes, remove recipes that do not match appliance, ustensils and ingredients filters
+// Return the filtered list of recipes
 function filterRecipes (x) {
   x = filterAppliancesByTags(x)
   x = filterUstensilsByTags(x)
@@ -8,6 +13,9 @@ function filterRecipes (x) {
   return x
 }
 
+// INGREDIENTS FILTERS
+
+// Take a list of recipes, filters it according to ingredients filter tags, return the filtered list
 function filterIngredientsByTags (x) {
   const DOMIngredientsTagsArray = []
   const DOMIngredientsTags = document.querySelectorAll('.ingredient-tag')
@@ -28,6 +36,9 @@ function filterIngredientsByTags (x) {
   }
 }
 
+// APPLIANCES FILTERS
+
+// Take a list of recipes, filters it according to appliances filter tags, return the filtered list
 function filterAppliancesByTags (x) {
   const DOMAppliancesTagsArray = []
   const DOMAppliancesTags = document.querySelectorAll('.appareil-tag')
@@ -47,6 +58,9 @@ function filterAppliancesByTags (x) {
   }
 }
 
+// USTENSILS FILTERS
+
+// Take a list of recipes, filters it according to ustensils filter tags, return the filtered list
 function filterUstensilsByTags (x) {
   const DOMUstensilsTagsArray = []
   const DOMUstensilsTags = document.querySelectorAll('.ustensile-tag')

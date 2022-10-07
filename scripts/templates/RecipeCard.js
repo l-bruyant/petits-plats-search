@@ -1,3 +1,5 @@
+// THIS FILE DEFINES HOW WE CREATE RECIPES CARD USING RECIPES DATA
+
 // eslint-disable-next-line no-unused-vars
 class RecipeCard {
   constructor (recipe) {
@@ -11,11 +13,11 @@ class RecipeCard {
     wrapper.classList.add('col-4')
     wrapper.setAttribute('tabindex', 0)
 
+    // Get ingredients from DATA to create an UL list with all ingredients
     const recipeIngredientsList = document.createElement('ul')
     recipeIngredientsList.classList.add('ingredients-list')
     recipeIngredientsList.classList.add('card-text')
     recipeIngredientsList.classList.add('list-unstyled')
-
     const recipeIngredients = this._recipe.ingredients
     recipeIngredients.forEach(ingredient => {
       const ingredientElement = document.createElement('li')

@@ -1,17 +1,19 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+// THIS PAGE DEFINES HOW FILTER TAGS ARE CREATED ACCORDING TO CLICKS IN THE FILTERS MENUS
+
 const filterTagArea = document.getElementById('filter-tag-display')
 
+// 1. INGREDIENTS FILTER TAGS
+// Take an ingredient tag name, check if it alredy exists on the page. If it doesn't, create it.
 function createIngredientTag (x) {
-  // Mettre en global dans la superfunction de creation
   const DOMTagsArray = []
   const DOMtags = document.querySelectorAll('.tag')
   DOMtags.forEach(tag => {
     const tagText = tag.innerText
     DOMTagsArray.push(tagText)
   })
-  // Fin partie globale
   const ingredientTagAlreadyExists = DOMTagsArray.some(element => {
     return x.includes(element)
   })
@@ -31,15 +33,15 @@ function createIngredientTag (x) {
   }
 }
 
+// 2. APPLIANCE FILTER TAGS
+// Works exactly as 1., please check 1. for more details
 function createApplianceTag (x) {
-  // Mettre en global dans la superfunction de creation
   const DOMTagsArray = []
   const DOMtags = document.querySelectorAll('.tag')
   DOMtags.forEach(tag => {
     const tagText = tag.innerText
     DOMTagsArray.push(tagText)
   })
-  // Fin partie globale
   const ApplianceTagAlreadyExists = DOMTagsArray.some(element => {
     return x.includes(element)
   })
@@ -59,15 +61,15 @@ function createApplianceTag (x) {
   }
 }
 
+// 3. USTENSILS FILTER TAGS
+// Works exactly as 1., please check 1. for more details
 function createUstensilTag (x) {
-  // Mettre en global dans la superfunction de creation
   const DOMTagsArray = []
   const DOMtags = document.querySelectorAll('.tag')
   DOMtags.forEach(tag => {
     const tagText = tag.innerText
     DOMTagsArray.push(tagText)
   })
-  // Fin partie globale
   const UstensilTagAlreadyExists = DOMTagsArray.some(element => {
     return x.includes(element)
   })

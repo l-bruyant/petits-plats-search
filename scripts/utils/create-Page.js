@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+// THIS PAGE DEFINES THE TOOLS NEEDED TO GENERATE ARTICLES AND FILTERS BASED ON RECIPES DATA INPUTS
+
 // MAIN FUNCTIONS FOR PAGE CREATION
 
+// Depending on conditions, creates the page content WITH or WITHOUT active filters or user input in the search bar
 function generatePage (x) {
   const appRecipesData = x
   checkActiveFilters()
@@ -13,9 +16,10 @@ function generatePage (x) {
   }
 }
 
+// Use SelectRecipes to removes recipes that don't match search & filters, then creates recipes cards
 function createPageWithFilter (x) {
   resetPage()
-  x = createRecipesList(x)
+  x = selectRecipes(x)
   x.forEach(recipe => {
     const Template = new RecipeCard(recipe)
     app.recipesWrapper.appendChild(Template.createRecipeCard())
@@ -23,6 +27,7 @@ function createPageWithFilter (x) {
   updateFiltersList(x)
 }
 
+// Create all recipes cards without filtering
 function createPageNoFilter (x) {
   resetPage()
   x.forEach(recipe => {
@@ -48,7 +53,7 @@ function deleteRecipesCards () {
 }
 
 // Take all recipes data, filters it using search values and filter tags, then returns a new filtered recipes list according to user requirements
-function createRecipesList (x) {
+function selectRecipes (x) {
   x = searchRecipes(x)
   x = filterRecipes(x)
   if (x.length === 0) {
@@ -62,7 +67,7 @@ function errorRecipesDOM () {
   document.getElementById('results').innerHTML = '<div> Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc </div>'
 }
 
-// Collect all active tag texts in an array, returns true if there is at least one active tag
+// Collect all active tag texts from the page, returns true if there is at least one active tag on the page
 function checkActiveFilters () {
   const DOMTagsArray = []
   const DOMtags = document.querySelectorAll('.tag')

@@ -1,12 +1,20 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+// THIS PAGE DEFINES HOW THE FILTERS SYSTEM IS GENERATED
+// INCLUDING SHOWING AVAILABLE FILTERS BASED ON ACTIVE RECIPES
+// INCLUDING ACTIONS WHEN CLICKING FILTERS BUTTONS & TAGS
+
+// Master function to create all filters (ingredients, appliances, ustensils)
 function updateFiltersList (x) {
   createIngredientsFilters(x)
   createApplianceFilters(x)
   createUstensilsFilters(x)
 }
 
+// 1. INGREDIENTS FILTERS
+
+// Takes recipes as input, gets all unique recipes ingredients in an array, then creates the filter items in the ingredients filter menu
 function createIngredientsFilters (x) {
   resetIngredientsFilterDOM()
   let ingredientsListFilter = []
@@ -20,21 +28,27 @@ function createIngredientsFilters (x) {
   })
 }
 
+// Reset the ingredients filter menu
 function resetIngredientsFilterDOM () {
   document.getElementById('ingredients-items-list').innerHTML = ''
 }
 
+// Take ingredient as input, create an ingredient item in the ingredient filter menu
 function createIngredientListItem (x) {
   const ingredientHTML = document.createElement('div')
   ingredientHTML.innerText = x
   ingredientHTML.classList.add('filter-item')
   document.getElementById('ingredients-items-list').appendChild(ingredientHTML)
+  // Define what happens when an ingredient item from the menu is clicked : create a filter tag & refresh search results
   ingredientHTML.addEventListener('click', function () {
     createIngredientTag(x)
     ingredientsTagSearch.value = ''
     app.createPage()
   })
 }
+
+// 2. APPLIANCES FILTERS
+// Works exactly as 1., please refer to 1. for explanations
 
 function createApplianceFilters (x) {
   resetApplianceFilterDOM()
@@ -65,7 +79,8 @@ function createApplianceListItem (x) {
   })
 }
 
-// USTENSILS FILTER
+// 3. USTENSILS FILTERS
+// Works exactly as 1., please refer to 1. for explanations
 
 function createUstensilsFilters (x) {
   resetUstensilsFilterDOM()
