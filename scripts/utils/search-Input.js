@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 // THIS PAGE DEFINES THE EFFECT OF USER INPUT IN THE RECIPES SEARCH BAR
+// It uses the filter functionnality for comparaisons between input & recipes data
 
 document.getElementById('main-form').addEventListener('submit', function (e) {
   e.preventDefault()
