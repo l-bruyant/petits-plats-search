@@ -8,6 +8,7 @@ body {
     max-width: 1200px;
 }
 
+
 header img {
     height: 100px;
     width: 270px;
@@ -17,6 +18,13 @@ header img {
 #search-section {
     overflow: visible;
     max-height: 196px;
+}
+
+@media screen and (max-width: 900px) {
+    #search-section {
+        overflow: visible;
+        max-height: none;
+    }
 }
 
 .search-bar-container {
@@ -150,6 +158,14 @@ header img {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+@media screen and (max-width: 900px) {
+    .filter-expanded {
+        margin: 0;
+        min-width: none;
+        max-height: none;
+    }
+}
+
 #ingredients-items-list {
     display: grid;
     grid-auto-flow: column;
@@ -162,13 +178,6 @@ header img {
     padding-bottom: 20px;
     padding-right: 16px;
 }
-
-@media screen and (max-width: 1400px) {
-    #ingredients-items-list,
-    .filter-expanded {
-        overflow:scroll;
-    }
-  }
 
 #ustensiles-items-list {
     display: grid;
@@ -195,6 +204,29 @@ header img {
     padding-bottom: 20px;
     padding-right: 16px;
 }
+
+@media screen and (max-width: 1400px) {
+    #ingredients-items-list,
+    .filter-expanded {
+        overflow:scroll;
+    }
+  }
+
+@media screen and (max-width: 900px) {
+    #ingredients-items-list,
+    #appareils-items-list,
+    #ustensiles-items-list,
+    .filter-expanded {
+        display: block;
+        overflow: scroll;
+        grid-auto-flow: none;
+        grid-template-rows: none;
+        flex-wrap: nowrap;
+        width: 100%;
+        max-height: 400px;
+        min-width: 300px;
+    }
+  }
 
 .filter-items-list div {
     display: block;
@@ -228,10 +260,18 @@ header img {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    height: 70px;
-    min-height: 70px;
-    max-height: 70px;
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
 }
+
+@media screen and (max-width: 900px) {
+    .filter-input-area {
+        height: 70px;
+        min-height: 70px;
+        max-height: 70px;
+    }
+  }
 
 
 .filter-input-area i {
@@ -277,7 +317,8 @@ header img {
     margin: auto;
     margin: 20px 10px;
     height: auto;
-    width: 380px;
+    width: 94%;
+    max-width: 380px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
